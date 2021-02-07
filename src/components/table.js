@@ -24,7 +24,7 @@ function TableData(props) {
 	const [popup, setPopup] = useState([]);
 	const [type, setType] = useState('');
 	const [isClose, setIsClose] = useState(true);
-	const [openCalendar, setOpenCalendar] = useState(false);
+	
 
 	let { sessions } = props;
 
@@ -36,9 +36,7 @@ function TableData(props) {
 	const handleClose = () => {
 		setIsClose(true);
 	};
-	const handleCalendarView = () => {
-		setOpenCalendar(true);
-	};
+	
 	return (
 		<>
 			{sessions && sessions.length > 0 ? (
@@ -53,7 +51,7 @@ function TableData(props) {
 							<Th width="50%">Actions</Th>
 						</Tr>
 						{sessions.map((each,index) => (
-							<Tr m="2%">
+							<Tr m="2%" key={index+each.createdOn}>
 								<Td width="20%">
 									{moment(each.createdOn).format('MMM YYYY,DD')}
 									<SubTitle>{timeDiffString(each.createdOn)}</SubTitle>

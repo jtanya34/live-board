@@ -1,5 +1,5 @@
 
-import { Div, Flex, Img, CampaignButton, Heading, Line } from '../sub-components/styled-elements';
+import { Div, Flex, CampaignButton, Heading, Line } from '../sub-components/styled-elements';
 import TableData from './table';
 import React from 'react';
 import { connect } from 'react-redux';

@@ -27,8 +27,8 @@ function ModalView(props) {
                                 </Div>
 							</Flex>
 							<Heading fontSize="16px" fontWeight ="500">Pricing</Heading>
-							{price.map((each) => (
-								<Flex justifyContent="space-between">
+							{price.map((each,index) => (
+								<Flex key={index}justifyContent="space-between">
 									<Div fontSize="14px" opacity= "0.5">{each.title}</Div>
 									<Div fontSize="14px" fontWeight ="500" >${each.rate}</Div>
 								</Flex>
