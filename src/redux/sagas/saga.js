@@ -23,7 +23,7 @@ export function* getSessions() {
 					image_url: '/assets/apps/small/Feature 2 Copy 2/img/80.png',
 				},
 				{
-					name: 'Test Whatsapp',
+					name: 'Test Whatsapp1',
 					region: 'US',
 					createdOn: 1619723314000,
 					price: [
@@ -75,7 +75,7 @@ export function* getSessions() {
 				image_url: '/assets/apps/small copy 3/Feature 2 Copy 2/img/80.png',
 				},
 				{
-					name: 'Mancala Mix',
+					name: 'Mancala',
 					region: 'JP',
 					createdOn: 1559805680104,
 					price: [
