@@ -1,4 +1,4 @@
-import { Div, Flex, Img } from './styled-elements';
+import { Div, Img } from './styled-elements';
 import React from 'react';
 import logo from '../assets/image 1.png';
 function Header() {

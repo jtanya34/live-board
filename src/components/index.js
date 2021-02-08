@@ -1,4 +1,3 @@
-
 import { Div, Flex, CampaignButton, Heading, Line } from '../sub-components/styled-elements';
 import TableData from './table';
 import React from 'react';
@@ -18,7 +17,6 @@ class MainApp extends React.Component {
 		if (this.props.sessions_list_status === 'none') {
 			this.props.getSessions();
 		} else if (this.props.sessions_list_status === 'success') {
-
 			this.handleSessionRearrange(this.props.sessions_list_response);
 		}
 	}
@@ -27,10 +25,16 @@ class MainApp extends React.Component {
 		if (prevProps.sessions_list_status === 'loading' && this.props.sessions_list_status === 'success') {
 			this.handleSessionRearrange(this.props.sessions_list_response);
 		}
+		if (this.props.sessions_list_status === 'updatedData') {
+			this.props.set_sessions_variable('sessions_list_status', 'success');
+			this.handleSessionRearrange(this.props.sessions_list_response);
+		}
 	}
 
+	//** To rearrange sessions i.e games according to upcoming, live or past */
+
 	handleSessionRearrange = (sessions) => {
-		let sessionsObj =  { upcoming: [] } ;
+		let sessionsObj = { upcoming: [] };
 		sessions.map((session, i) => {
 			if (sessionsObj[timeDiff(session.createdOn)]) {
 				sessionsObj[timeDiff(session.createdOn)].push(session);
@@ -39,18 +43,12 @@ class MainApp extends React.Component {
 				sessionsObj[timeDiff(session.createdOn)].push(session);
 			}
 		});
-		console.log(sessionsObj);
 		this.setState({ sessions: sessionsObj });
 	};
 
 	onHandleClick = (e) => {
 		let type = e.target.value;
 		this.setState({ campaign: type });
-		if( this.props.sessions_list_status === "updatedData"){
-			
-			this.props.set_sessions_variable('sessions_list_status',"success")
-			this.handleSessionRearrange(this.props.sessions_list_response);
-		}
 	};
 
 	render() {

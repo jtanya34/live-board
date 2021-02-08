@@ -1,5 +1,5 @@
-import { render } from '@testing-library/react';
-import React, { useState } from 'react';
+
+import React from 'react';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import { GiCalendar } from 'react-icons/gi';
@@ -15,15 +15,12 @@ export class Calendar extends React.Component {
 	};
 	handleDate = (date) => {
         
-        let { session, sessions_list_response, index } = this.props;
+        let { session, sessions_list_response } = this.props;
         
 		let newSession = session;
-		let ts = moment(date).unix();
         newSession.createdOn = moment(date).valueOf();
-        console.log(newSession);
-		let updatedSessions = sessions_list_response.filter((each, i) => i != index);
+		let updatedSessions = sessions_list_response.filter((each) => each.name !== session.name);
         updatedSessions.push(newSession);
-        console.log(updatedSessions);
         this.props.set_sessions_variable('sessions_list_response', updatedSessions);
         this.props.set_sessions_variable('sessions_list_status', "updatedData");
 	};

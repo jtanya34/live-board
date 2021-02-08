@@ -1,6 +1,6 @@
 import { Div, Flex, Img, Modal, Heading,CloseButton } from './styled-elements';
 
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 
 function ModalView(props) {
    const {type,data,isClose,handleClose} = props
@@ -18,9 +18,9 @@ function ModalView(props) {
 						&times;
 					</Div>
 					{type === 'pricing' && (
-						<Div m = "4%">
-							<Flex fdir="row" >
-								<Img src={image_url} alt="game" />
+						<Div m = "5%">
+							<Flex dir="row" >
+								<Img size="24px" mr="12px" src={image_url} alt="game" />
                                 <Div>
 								<Div fontSize="16px" fontWeight ="500">{name.toUpperCase()}</Div>
 								<Div fontSize="14px" opacity= "0.5">{region}</Div>
@@ -28,7 +28,7 @@ function ModalView(props) {
 							</Flex>
 							<Heading fontSize="16px" fontWeight ="500">Pricing</Heading>
 							{price.map((each,index) => (
-								<Flex key={index}justifyContent="space-between">
+								<Flex key={index} justifyContent="space-between">
 									<Div fontSize="14px" opacity= "0.5">{each.title}</Div>
 									<Div fontSize="14px" fontWeight ="500" >${each.rate}</Div>
 								</Flex>

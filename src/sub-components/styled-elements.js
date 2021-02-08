@@ -1,5 +1,5 @@
 import { border, space, layout, typography, color, position, flexbox, shadow } from 'styled-system';
-import styled, { createGlobalStyle, css } from 'styled-components';
+import styled from 'styled-components';
 
 export const Heading = styled.h1`
 	${typography}
@@ -46,7 +46,7 @@ export const Flex = styled.div`
     ${space}
 	${position}
 	@media (max-width: 938px) {
-	  flex-direction: ${(props) => (props.fdir ? "row": 'column')};
+	  flex-direction: ${(props) => (props.dir  ? 'row': 'column')};
 	  align-items: center;
 	}
 
