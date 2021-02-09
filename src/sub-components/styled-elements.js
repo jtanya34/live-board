@@ -102,6 +102,7 @@ export const Button = styled.button`
   ${flexbox}
   cursor:pointer;
 	outline: none;
+	color: ${props=>props.bgColor?'red':'#000'};
 `;
 
 // Styled component named StyledButton

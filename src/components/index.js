@@ -1,4 +1,4 @@
-import { Div, Flex, CampaignButton, Heading, Line } from '../sub-components/styled-elements';
+import { Div, Flex, CampaignButton, Heading, Line, Button } from '../sub-components/styled-elements';
 import TableData from './table';
 import React from 'react';
 import { connect } from 'react-redux';
@@ -11,9 +11,12 @@ class MainApp extends React.Component {
 	state = {
 		campaign: 'upcoming',
 		sessions: { upcoming: [] },
+		lang:'en'
+
 	};
 
 	componentDidMount() {
+		console.log(this.props)
 		if (this.props.sessions_list_status === 'none') {
 			this.props.getSessions();
 		} else if (this.props.sessions_list_status === 'success') {
@@ -51,13 +54,30 @@ class MainApp extends React.Component {
 		this.setState({ campaign: type });
 	};
 
+	handleLanguage = (e)=>{
+		const { i18n } = this.props
+		let lang = e.target.value;
+		this.setState({ lang})
+		i18n.changeLanguage(lang)
+	}
+
+
+
 	render() {
+		const { t,i18n } = this.props
 		return (
 			<Div position="absolute" width="100%" height="100%" top="0" left="0">
-				<Header />
+				<Header props={this.props} />
+				<Flex justifyContent="space-between" mr="5%">
 				<Heading color="#2B416C" ml="10%">
-					Manage Campaigns
+					{t('Manage Campaigns')}
 				</Heading>
+				<Flex m="2%" justifyContent="space-between">
+				<Button  bg="transparent" mr ="5%" border="none" bgColor={this.state.lang ==="en"} value ="en" onClick={(e)=>this.handleLanguage(e)}>English</Button>
+				<Button  bg="transparent" mr ="5%" border="none" bgColor={this.state.lang ==="de"} value ="de" onClick={(e)=>this.handleLanguage(e)}>German</Button>
+				<Button  bg="transparent" border="none" value ="hi"  bgColor={this.state.lang ==="hi"}onClick={(e)=>this.handleLanguage(e)}>Hindi</Button>
+				</Flex>
+				</Flex>
 				<Flex m="0 5% 5% 5%">
 					<CampaignButton
 						selected={this.state.campaign === 'upcoming'}
@@ -65,16 +85,17 @@ class MainApp extends React.Component {
 						value="upcoming"
 						onClick={(e) => this.onHandleClick(e)}
 					>
-						Upcoming Campaigns
+						{t('Upcoming Campaigns')}
+
 						{this.state.campaign === 'upcoming' && <Line />}
 					</CampaignButton>
 
 					<CampaignButton selected={this.state.campaign === 'live'} value="live" onClick={(e) => this.onHandleClick(e)}>
-						Live Campaigns
+						{t('Live Campaigns')}
 						{this.state.campaign === 'live' && <Line />}
 					</CampaignButton>
 					<CampaignButton selected={this.state.campaign === 'past'} value="past" onClick={(e) => this.onHandleClick(e)}>
-						Past Campaigns
+						{t('Past Campaigns')}
 						{this.state.campaign === 'past' && <Line />}
 					</CampaignButton>
 				</Flex>
