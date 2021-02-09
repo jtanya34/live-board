@@ -96,7 +96,7 @@ function TableData(props) {
 					</Table>
 				</Div>
 			) : (
-				<Div>No campaign available</Div>
+				<Div m="10%">No campaign available</Div>
 			)}
 			
 			<ModalView type={type} data={popup} isClose={isClose} handleClose={handleClose} />
