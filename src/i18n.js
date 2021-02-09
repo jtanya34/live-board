@@ -9,7 +9,8 @@ i18n.use(LanguageDetector).init({
                 'Upcoming Campaigns': 'Upcoming Campaigns',
                 'Live Campaigns': 'Live Campaigns',
                 'Past Campaigns': 'Past Campaigns',
-                'Manage Campaigns':'Manage Campaigns'
+                'Manage Campaigns':'Manage Campaigns',
+                'No campaign available': 'No campaign available'
 			},
 		},
 		de: {
@@ -17,7 +18,8 @@ i18n.use(LanguageDetector).init({
                 'Upcoming Campaigns': 'Kommende Kampagnen',
                 'Live Campaigns': 'Leben Kampagnen',
                 'Past Campaigns': 'Vergangenheit Kampagnen',
-                'Manage Campaigns':'Kampagnen verwalten'
+                'Manage Campaigns':'Kampagnen verwalten',
+                'No campaign available':'Keine Kampagne verfügbar'
 			},
 		},
 
@@ -26,7 +28,8 @@ i18n.use(LanguageDetector).init({
                 'Upcoming Campaigns': 'आगामी अभियान',
                 'Live Campaigns': 'लाइव अभियान',
                 'Past Campaigns': 'विगत अभियान',
-                'Manage Campaigns':'अभियान प्रबंधित करें'
+                'Manage Campaigns':'अभियान प्रबंधित करें',
+                'No campaign available':'कोई अभियान उपलब्ध नहीं है'
 			},
 		},
 	},

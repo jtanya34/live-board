@@ -26,7 +26,7 @@ function TableData(props) {
 	const [isClose, setIsClose] = useState(true);
 	
 
-	let { sessions } = props;
+	let { sessions, t } = props;
 
 	const handlePricing = (session) => {
 		setPopup(session);
@@ -96,7 +96,7 @@ function TableData(props) {
 					</Table>
 				</Div>
 			) : (
-				<Div m="10%">No campaign available</Div>
+				<Div m="10%">{t('No campaign available')}</Div>
 			)}
 			
 			<ModalView type={type} data={popup} isClose={isClose} handleClose={handleClose} />

@@ -11,7 +11,7 @@ class MainApp extends React.Component {
 	state = {
 		campaign: 'upcoming',
 		sessions: { upcoming: [] },
-		lang:'en'
+		lang:this.props.i18n.language
 
 	};
 
@@ -99,7 +99,7 @@ class MainApp extends React.Component {
 						{this.state.campaign === 'past' && <Line />}
 					</CampaignButton>
 				</Flex>
-				<TableData sessions={this.state.sessions[this.state.campaign]} />
+				<TableData sessions={this.state.sessions[this.state.campaign]} t={this.props.t} />
 			</Div>
 		);
 	}
